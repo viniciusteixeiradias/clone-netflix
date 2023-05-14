@@ -29,19 +29,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3\
+      - uses: pnpm/action-setup@v2.2.2
         with:
-          node-version: 14 # Change this to your desired Node.js version
-
+          version: 7
       - name: Install dependencies
-        run: npm install
-
-      - name: Build React app
-        run: npm build
-
+        run: pnpm install
+      - name: Build
+        run: pnpm build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
